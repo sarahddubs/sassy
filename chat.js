@@ -10,7 +10,7 @@ var mes;
 var file;
 
 var unique_id = GetURLParameter('id');
-var file_name = 'chat' + unique_id + '.txt';
+var file_name = 'conversations/chat' + unique_id + '.txt';
 
 function Chat () {
     this.update = updateChat;
