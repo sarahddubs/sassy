@@ -1,5 +1,6 @@
 <?php
-
+	
+	$file_name = $_POST['file_name'];
     $function = $_POST['function'];
     
     $log = array();
@@ -7,16 +8,16 @@
     switch($function) {
     
     	 case('getState'):
-        	 if(file_exists('chat.txt')){
-               $lines = file('chat.txt');
+        	 if(file_exists($file_name)){
+               $lines = file($file_name);
         	 }
              $log['state'] = count($lines); 
         	 break;	
     	
     	 case('update'):
         	$state = $_POST['state'];
-        	if(file_exists('chat.txt')){
-        	   $lines = file('chat.txt');
+        	if(file_exists($file_name)){
+        	   $lines = file($file_name);
         	 }
         	 $count =  count($lines);
         	 if($state == $count){
@@ -50,7 +51,7 @@
 				} 
 			 
         	
-        	 fwrite(fopen('chat.txt', 'a'), "<span>". $nickname . "</span>" . $message = str_replace("\n", " ", $message) . "\n"); 
+        	 fwrite(fopen($file_name, 'a'), "<span>". $nickname . "</span>" . $message = str_replace("\n", " ", $message) . "\n"); 
 		 }
         	 break;
     	
