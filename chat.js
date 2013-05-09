@@ -9,6 +9,9 @@ var state;
 var mes;
 var file;
 
+var unique_id = GetURLParameter('id');
+var file_name = 'chat' + unique_id + '.txt';
+
 function Chat () {
     this.update = updateChat;
     this.send = sendChat;
@@ -24,7 +27,8 @@ function getStateOfChat(){
 			   url: "process.php",
 			   data: {  
 			   			'function': 'getState',
-						'file': file
+						'file': file,
+						'file_name':file_name
 						},
 			   dataType: "json",
 			
@@ -46,7 +50,8 @@ function updateChat(){
 			   data: {  
 			   			'function': 'update',
 						'state': state,
-						'file': file
+						'file': file,
+						'file_name':file_name
 						},
 			   dataType: "json",
 			   success: function(data){
@@ -77,7 +82,8 @@ function sendChat(message, nickname)
 		   			'function': 'send',
 					'message': message,
 					'nickname': nickname,
-					'file': file
+					'file': file,
+					'file_name':file_name
 				 },
 		   dataType: "json",
 		   success: function(data){
@@ -85,3 +91,19 @@ function sendChat(message, nickname)
 		   },
 		});
 }
+
+// get a parameter from the url
+function GetURLParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
+        {
+            return sParameterName[1];
+        }
+    }
+}
+
