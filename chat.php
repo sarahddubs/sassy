@@ -92,6 +92,15 @@
     
     </div>
 
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="jquery.cookie.js"></script>
+<script>
+	alert($.cookie("user_id"));
+</script>
+
+
 </body>
 
 </html>
