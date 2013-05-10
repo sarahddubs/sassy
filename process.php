@@ -5,12 +5,59 @@
     
     $log = array();
     
+    /*
+    * If this is the first time the second user enters, return true.
+    * Otherwise, return false.
+    */
+    function secondUserEnters($cookie, $file_name) {
+    	
+    	$file = fopen($file_name, 'r');
+    	$line = fgets($file);
+    	
+    	$cookie_regex = '/'.$cookie.'/';
+    	
+    	if (preg_match($cookie_regex, $line)) {
+    		// This is User #1
+        	return false;
+    	}
+    	
+    	if (preg_match('USER#2', $line)) {
+    		// USER#2 Cookie already defined
+    		return false;
+    	}
+    	
+    	fclose($file);
+    	return true;
+    }
+    
+    
+    function writeCookie($cookie, $file_name, $first_user) {
+    	
+    	if ($first_user) {
+    		$file = fopen($file_name, 'a');
+        	fwrite($file, "USER#1:".$cookie."\n"); 
+        	fclose($file);
+    	} else {
+    		$file = fopen($file_name, 'r+');
+			$line = fgets($file);
+		
+			$offset = strlen($line) - 1;
+			fseek($file, $offset);
+			fwrite($file, ' USER#2:'.$cookie);
+		
+			fclose($file);
+    	}	
+    }
+    
     switch($function) {
     
     	 case('getState'):
         	 if(!file_exists($file_name)){
-        	 	$cookie_1 = $_POST['cookie_1'];
-        	 	fwrite(fopen($file_name, 'a'), $cookie_1."\n"); 
+        	 	// This must be the first user
+        	 	writeCookie($_POST['cookie'], $file_name, true);
+        	 } else if (secondUserEnters($_POST['cookie'], $file_name)) {
+        	 	// This must be the second user
+        	 	writeCookie($_POST['cookie'], $file_name, false);
         	 }
         	 $lines = file($file_name);
              $log['state'] = count($lines); 
@@ -52,7 +99,7 @@
        			$message = preg_replace($reg_exUrl, '<a href="'.$url[0].'" target="_blank">'.$url[0].'</a>', $message);
 				} 
 			 
-        	
+        	 
         	 fwrite(fopen($file_name, 'a'), "<span>". $nickname . "</span>" . $message = str_replace("\n", " ", $message) . "\n"); 
 		 }
         	 break;
