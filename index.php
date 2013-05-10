@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<a href="chat.php">Go to chatroom</a>
+<a id="chat-link">Go to chatroom</a>
 
 
 
@@ -13,14 +13,18 @@
 
 <script>
 	var userID = "<?php echo uniqid(); ?>";
-	alert(userID);
 	
 	$.cookie("user_id", userID);
 
-// Ajax Request to PHP to get uniq id
-// set cookie unique id to what is returned
-// chat.php onclick: ajax call to php that returns chatroom id {later: add matching}
-// redirect user to chatroom with chatroom id
+	$('#chat-link').click(function() {
+	// get empty chatroom ID from database
+	// if chatroom does not exist, create and forward
+	// else forward
+	
+		var chatroomID = "<?php echo uniqid('chat_'); ?>";
+		var link = 'chat.php?id=' + chatroomID;
+		window.location = link;
+	});
 
 </script>
 </body>
