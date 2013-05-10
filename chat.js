@@ -10,7 +10,7 @@ var mes;
 var file;
 
 var unique_id = GetURLParameter('id');
-var file_name = 'conversations/chat' + unique_id + '.txt';
+var file_name = 'conversations/' + unique_id + '.txt';
 
 function Chat () {
     this.update = updateChat;
@@ -20,6 +20,7 @@ function Chat () {
 
 //gets the state of the chat
 function getStateOfChat(){
+	console.log("get state of chat called");
 	if(!instanse){
 		 instanse = true;
 		 $.ajax({
@@ -28,7 +29,8 @@ function getStateOfChat(){
 			   data: {  
 			   			'function': 'getState',
 						'file': file,
-						'file_name':file_name
+						'file_name':file_name,
+						'cookie': $.cookie("user_id")
 						},
 			   dataType: "json",
 			
@@ -72,8 +74,7 @@ function updateChat(){
 }
 
 //send the message
-function sendChat(message, nickname)
-{       
+function sendChat(message, nickname){       
     updateChat();
      $.ajax({
 		   type: "POST",
