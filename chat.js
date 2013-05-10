@@ -28,12 +28,14 @@ function getStateOfChat(){
 			   data: {  
 			   			'function': 'getState',
 						'file': file,
-						'file_name':file_name
+						'file_name':file_name,
+						'cookie_1': $.cookie("user_id")
 						},
 			   dataType: "json",
 			
 			   success: function(data){
 				   state = data.state;
+				   console.log("state is " + state);
 				   instanse = false;
 			   },
 			});
@@ -55,6 +57,7 @@ function updateChat(){
 						},
 			   dataType: "json",
 			   success: function(data){
+			   		console.log("hello world");
 				   if(data.text){
 						for (var i = 0; i < data.text.length; i++) {
                             $('#chat-area').append($("<p>"+ data.text[i] +"</p>"));
@@ -72,8 +75,7 @@ function updateChat(){
 }
 
 //send the message
-function sendChat(message, nickname)
-{       
+function sendChat(message, nickname){       
     updateChat();
      $.ajax({
 		   type: "POST",

@@ -8,9 +8,11 @@
     switch($function) {
     
     	 case('getState'):
-        	 if(file_exists($file_name)){
-               $lines = file($file_name);
+        	 if(!file_exists($file_name)){
+        	 	$cookie_1 = $_POST['cookie_1'];
+        	 	fwrite(fopen($file_name, 'a'), $cookie_1."\n"); 
         	 }
+        	 $lines = file($file_name);
              $log['state'] = count($lines); 
         	 break;	
     	
