@@ -17,7 +17,7 @@
 	$.cookie("user_id", userID);
 
 	$('#chat-link').click(function() {
-		// TODO: Some kind of stalling function so that it doesn't send you to a chatroom by yourself.
+		// TODO: Some kind of stalling function so that it doesn't send you to a chatroom with one person in it.
 		$.ajax({
 		    type: 'GET',
 		    url: 'getroom.php',
