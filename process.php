@@ -21,7 +21,7 @@
         	return false;
     	}
     	
-    	if (preg_match('USER#2', $line)) {
+    	if (preg_match('/USER#2/', $line)) {
     		// USER#2 Cookie already defined
     		return false;
     	}
@@ -43,7 +43,7 @@
 		
 			$offset = strlen($line) - 1;
 			fseek($file, $offset);
-			fwrite($file, ' USER#2:'.$cookie);
+			fwrite($file, ' USER#2:'.$cookie."\n");
 		
 			fclose($file);
     	}	
