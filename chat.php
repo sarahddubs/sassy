@@ -89,6 +89,8 @@
             <p>Your message: </p>
             <textarea id="sendie" maxlength = '100' ></textarea>
         </form>
+		<br><br><br><br><br><br><br>
+		<a href="index.php"><button id="end-convo">End Conversation</button></a>
     
     </div>
 

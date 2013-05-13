@@ -58,6 +58,9 @@ function updateChat(){
 						'file_name':file_name
 						},
 			   dataType: "json",
+			   error: function(data){
+					console.log(data);
+			   },
 			   success: function(data){
 			   	   console.log("data.text on success: " + data.text);
 				   if(data.text){
