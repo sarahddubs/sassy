@@ -61,6 +61,9 @@ function updateChat(){
 						'file_name':file_name
 						},
 			   dataType: "json",
+			   error: function(data){
+					console.log(data);
+			   },
 			   success: function(data){
 				   if(data.text){
 						for (var i = 0; i < data.text.length; i++) {
