@@ -98,7 +98,7 @@
 				} 
 			 
         	 
-        	 fwrite(fopen($file_name, 'a'), "<span>". $nickname . "</span>" . $message = str_replace("\n", " ", $message) . "\n"); 
+        	 fwrite(fopen($file_name, 'a'), "" . $message = str_replace("\n", " ", $message) . "\n"); 
 		 }
         	 break;
     	

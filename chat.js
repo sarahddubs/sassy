@@ -62,7 +62,16 @@ function updateChat(){
 			   	   console.log("data.text on success: " + data.text);
 				   if(data.text){
 						for (var i = 0; i < data.text.length; i++) {
-                            $('#chat-area').append($("<p>"+ data.text[i] +"</p>"));
+							
+							var first_space = data.text[i].indexOf(' ');
+							var second_space = data.text[i].indexOf(' ', first_space + 1);
+							var timestamp = data.text[i].substring(0, first_space);
+							var sent_by = data.text[i].substring(first_space + 1 , second_space);
+							var message = data.text[i].substring(second_space + 1);
+							var person = '';
+							if ($.cookie('user_id') == sent_by) person = 'You';
+							else person = 'Stranger';
+                            $('#chat-area').append($("<p><span>" + person + '</span>' + message +"</p>")); // TEXT OF USER
                         }								  
 				   }
 				   document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;

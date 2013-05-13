@@ -50,7 +50,7 @@
     		 					 
     			  if (e.keyCode == 13) { 
     			  
-                    var text = $(this).val();
+                    var text = new Date().getTime() + ' ' + $.cookie('user_id') + ' ' + $(this).val(); // timestamp, usercookie, message
     				var maxLength = $(this).attr("maxlength");  
                     var length = text.length; 
                      
@@ -79,7 +79,7 @@
 
     <div id="page-wrap">
     
-        <h2>jQuery/PHP Chat</h2>
+        <h2>We need a good title.</h2>
         
         <p id="name-area"></p>
         
@@ -96,9 +96,7 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="jquery.cookie.js"></script>
-<script>
-	alert($.cookie("user_id"));
-</script>
+
 
 
 </body>
