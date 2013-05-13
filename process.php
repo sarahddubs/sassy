@@ -101,7 +101,21 @@
         	 fwrite(fopen($file_name, 'a'), "" . $message = str_replace("\n", " ", $message) . "\n"); 
 		 }
         	 break;
-    	
+        
+        case('usersReady'):
+        	$file_name = $_POST['file_name'];
+        	if(file_exists($file_name)) {
+				$file = fopen($file_name, 'r');
+				$line = fgets($file);
+				$log['ready'] = $line;
+				if (preg_match('/USER#1/', $line) && preg_match('/USER#2/', $line)) {
+					$log['ready'] = true;
+				} else {
+					$log['ready'] = false;
+				}
+        	} else {
+        		$log['ready'] = false;
+        	}
     }
     
     echo json_encode($log);

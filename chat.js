@@ -11,6 +11,12 @@ var file;
 
 var unique_id = GetURLParameter('id');
 var file_name = 'conversations/' + unique_id + '.txt';
+var usersReady = false;
+
+var usersReadyInterval = setInterval(
+							function(){
+								areUsersReady()
+							},1000);
 
 function Chat () {
     this.update = updateChat;
@@ -43,12 +49,8 @@ function getStateOfChat(){
 
 //Updates the chat
 function updateChat(){
-	console.log("state before request: " + state);
 	 if(!instanse){
 		 instanse = true;
-		 console.log("state: " + state);
-		 console.log("file: " + file);
-		 console.log("file_name: " + file_name);
 	     $.ajax({
 			   type: "POST",
 			   url: "process.php",
@@ -60,7 +62,6 @@ function updateChat(){
 						},
 			   dataType: "json",
 			   success: function(data){
-			   	   console.log("data.text on success: " + data.text);
 				   if(data.text){
 						for (var i = 0; i < data.text.length; i++) {
 							
@@ -104,6 +105,27 @@ function sendChat(message, nickname){
 			   updateChat();
 		   },
 		});
+}
+
+function areUsersReady() {
+	if (!usersReady) {
+		$.ajax({
+			type: "POST",
+			url: "process.php",
+			data: {
+				'function': 'usersReady',
+				'file_name':file_name
+			},
+			dataType: "json",
+			success: function (data){
+				if (!usersReady && data.ready) {
+					usersReady = true;
+					clearInterval(usersReadyInterval);
+					$('#chat-area').append($("<p>You have been connected!  Say 'hello' to your conversation partner.</p>"));
+				}
+			},
+		});
+	}
 }
 
 // get a parameter from the url
