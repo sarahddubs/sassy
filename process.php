@@ -69,21 +69,19 @@
         	   $lines = file($file_name);
         	 }
         	 $count =  count($lines);
-        	 if($state == $count){
+        	 if($state == $count) {
         		 $log['state'] = $state;
         		 $log['text'] = false;
         		 
-        		 }
-        		 else{
+        	 } else {
         			 $text= array();
         			 $log['state'] = $state + count($lines) - $state;
-        			 foreach ($lines as $line_num => $line)
-                       {
-        				   if($line_num >= $state){
-                         $text[] =  $line = str_replace("\n", "", $line);
-        				   }
+        			 foreach ($lines as $line_num => $line) {
+        				if($line_num >= $state){
+                         	$text[] =  $line = str_replace("\n", "", $line);
+        				}
          
-                        }
+                     }
         			 $log['text'] = $text; 
         		 }
         	  

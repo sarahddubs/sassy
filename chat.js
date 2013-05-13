@@ -44,8 +44,10 @@ function getStateOfChat(){
 
 //Updates the chat
 function updateChat(){
+	console.log("update chat called");
 	 if(!instanse){
 		 instanse = true;
+		 console.log("state: " + state);
 	     $.ajax({
 			   type: "POST",
 			   url: "process.php",
@@ -57,6 +59,7 @@ function updateChat(){
 						},
 			   dataType: "json",
 			   success: function(data){
+			   	   console.log("data.text on success: " + data.text);
 				   if(data.text){
 						for (var i = 0; i < data.text.length; i++) {
                             $('#chat-area').append($("<p>"+ data.text[i] +"</p>"));
