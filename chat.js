@@ -20,7 +20,6 @@ function Chat () {
 
 //gets the state of the chat
 function getStateOfChat(){
-	console.log("get state of chat called");
 	if(!instanse){
 		 instanse = true;
 		 $.ajax({
@@ -44,10 +43,12 @@ function getStateOfChat(){
 
 //Updates the chat
 function updateChat(){
-	console.log("update chat called");
+	console.log("state before request: " + state);
 	 if(!instanse){
 		 instanse = true;
 		 console.log("state: " + state);
+		 console.log("file: " + file);
+		 console.log("file_name: " + file_name);
 	     $.ajax({
 			   type: "POST",
 			   url: "process.php",
