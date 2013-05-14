@@ -185,6 +185,11 @@
 <script src="jquery.cookie.js"></script>
 <script>
 	$('#end-convo').click(function() {
+		if (!usersReady) {
+			// 1 person, Sarah
+		}
+	
+	
 		$( "#dialog-confirm" ).dialog({
 			resizable: false,
 			height:140,
