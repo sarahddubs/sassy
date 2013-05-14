@@ -115,7 +115,6 @@
 		</p>
 	</div>
 	
-	
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" src="chat.js"></script>
     <script type="text/javascript">
@@ -228,6 +227,24 @@
 	$(function(){ // wait for document to load
 		$('input.star').rating();
 	});
+</script>
+
+<script>
+  window.onbeforeunload = confirmExit;
+  function confirmExit()
+  {
+    if (usersReady) {
+		return "You should at least say goodbye :(";
+	} else {
+		$.ajax({
+		   type: "POST",
+		   url: "clearroom.php",
+		   success: function(data){	   
+				// here?
+		   }
+		});
+	}
+  }
 </script>
 <script src="star-rating/jquery.rating.pack.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
