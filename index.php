@@ -89,6 +89,8 @@
 			color:#990000;
 		}
 		
+		.chatroom_room_a {}
+		
 	</style>
 </head>
 <body>
@@ -108,7 +110,7 @@
 						Someone out there will listen.
 						<b>Be heard.</b>
 					</p>
-					<button class="begin-convo" id="begin-convo"><a id="chat-link">Begin Conversation</a></button>
+					<button class="begin-convo chatroom_room_a" id="begin-convo"><a class='chatroom_room_a' id="chat-link">Begin Conversation</a></button>
 				</div>
 			</td>
 			<td>
@@ -134,7 +136,7 @@
 	
 	$.cookie("user_id", userID);
 
-	$('#chat-link').click(function() {
+	$('.chatroom_room_a').click(function() {
 		// TODO: Some kind of stalling function so that it doesn't send you to a chatroom by yourself.
 		$.ajax({
 		    type: 'GET',

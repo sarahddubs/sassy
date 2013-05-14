@@ -1,9 +1,0 @@
-<?php
-	$my_file = 'rooms.txt';
-	$handle = fopen($my_file, 'r');
-	$data = fread($handle,100);
-
-	fwrite($handle, '');	
-	
-	echo $data;
-?>
