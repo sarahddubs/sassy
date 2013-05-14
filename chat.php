@@ -38,7 +38,7 @@
 		
 		#dialog-confirm {
 			display: none;
-			background-color: yellow;
+			background-color: white;
 		}
 		.ui-dialog-titlebar-close {
 			visibility: hidden;
@@ -74,11 +74,16 @@
 		}.ui-button-text:active {
 			position:relative;
 			top:1px;
+		}	
+		#survey {
+			position: absolute;
+			left: 100px;
 		}
-
-	
 	</style>
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    
+	<link rel="stylesheet" href="http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.css" type="text/css">
+
+	<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
 	<div id="page-wrap">
@@ -99,8 +104,14 @@
 	<div id="dialog-confirm">
 		<p>
 			<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-			How meaningful was this conversation to you? <br>
-			* * * * *
+			On a scale from 1-5, how meaningful was this conversation to you? <br><br>
+			<form id="survey">
+				<input name="rating" type="radio" class="star {split:4}" value="1"/>
+				<input name="rating" type="radio" class="star {split:4}" value="2"/>
+				<input name="rating" type="radio" class="star {split:4}" value="3"/>
+				<input name="rating" type="radio" class="star {split:4}" value="4"/>
+				<input name="rating" type="radio" class="star {split:4}" value="5"/>
+			</form>
 		</p>
 	</div>
 	
@@ -180,14 +191,31 @@
 			modal: true,
 			buttons: {
 				"Rate and close": function() {
-				$( this ).dialog( "close" );
-				window.location = 'index.php';
+					// check if there is a rating. If not, alert user and return.
+					// If there is a rating, send to php function. 
+					var box = this;
+					var rating = $('#survey').serialize();
+					if (rating == '') {
+						alert('Please rate this conversation.');
+						return;
+					} else {
+						var num = rating.substring(7);
+						alert(num);
+						// TODO: Send to php form to write rating in
+						$(box).dialog('close');
+						window.location = 'index.php';
+						
+					}
+					
 				}
 			}
 		});
 	});
+	$(function(){ // wait for document to load
+		$('input.star').rating();
+	});
 </script>
-
+<script src="star-rating/jquery.rating.pack.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 </body>
 
