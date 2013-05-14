@@ -236,8 +236,17 @@
   function confirmExit()
   {
     if (usersReady) {
-		//TODO: Send disconnect data.
-		// return "You should at least say goodbye :(";
+		$.ajax({
+		   type: "POST",
+		   url: "rate.php",
+		   data: {  
+					'chat_filename': file_name,
+					'rating': $.cookie('user_id') + ':  -1'
+				},
+		   success: function(data){
+		   
+		   }
+		});	
 	} else {
 		$.ajax({
 		   type: "POST",
