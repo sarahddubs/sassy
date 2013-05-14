@@ -66,23 +66,19 @@ function updateChat(){
 			   },
 			   success: function(data){
 				   if(data.text){
-				   		if (data.end) {
-				   			// a user has disconnected!
-				   			alert("Your partner has disconnected");
-				   		} else {
-							for (var i = 0; i < data.text.length; i++) {
+						for (var i = 0; i < data.text.length; i++) {
 							
-								var first_space = data.text[i].indexOf(' ');
-								var second_space = data.text[i].indexOf(' ', first_space + 1);
-								var timestamp = data.text[i].substring(0, first_space);
-								var sent_by = data.text[i].substring(first_space + 1 , second_space);
-								var message = data.text[i].substring(second_space + 1);
-								var person = '';
-								if ($.cookie('user_id') == sent_by) person = 'You';
-								else person = 'Stranger';
-								$('#chat-area').append($("<p><span>" + person + '</span>' + message +"</p>")); // TEXT OF USER
-							}		
-                        }						  
+							var first_space = data.text[i].indexOf(' ');
+							var second_space = data.text[i].indexOf(' ', first_space + 1);
+							var timestamp = data.text[i].substring(0, first_space);
+							var sent_by = data.text[i].substring(first_space + 1 , second_space);
+							var message = data.text[i].substring(second_space + 1);
+							message = message.replace(/\\'/g, "'");
+							var person = '';
+							if ($.cookie('user_id') == sent_by) person = 'You';
+							else person = 'Stranger';
+                            $('#chat-area').append($("<p><span>" + person + '</span>' + message +"</p>")); // TEXT OF USER
+                        }								  
 				   }
 				   document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;
 				   instanse = false;
