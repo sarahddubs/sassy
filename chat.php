@@ -184,48 +184,47 @@
 <script src="jquery.cookie.js"></script>
 <script>
 	$('#end-convo').click(function() {
-		if (!usersReady) {
-			// 1 person, Sarah
-		}
-	
-	
-		$( "#dialog-confirm" ).dialog({
-			resizable: false,
-			height:140,
-			modal: true,
-			buttons: {
-				"Rate and close": function() {
-					// check if there is a rating. If not, alert user and return.
-					// If there is a rating, send to php function. 
-					var box = this;
-					var rating = $('#survey').serialize();
-					if (rating == '') {
-						alert('Please rate this conversation.');
-						return;
-					} else {
-						var num = rating.substring(7);
-						// TODO: Send to php form to write rating in
-						$.ajax({
-						   type: "POST",
-						   url: "rate.php",
-						   data: {  
-									'chat_filename': file_name,
-									'rating': $.cookie('user_id') + ': ' + num
-								},
-						   success: function(data){	   
-								$(box).dialog('close');
-								window.location = 'index.php';
-						   }
-						});
-						
-					}
-					
+		if (!usersReady) { // 1 person in chatroom, return to index
+			$.ajax({
+				type: "POST",
+				url: "clearroom.php",
+				success: function(data){
+					window.location = 'index.php';
 				}
-			}
-		});
-	});
-	$(function(){ // wait for document to load
-		$('input.star').rating();
+			});
+		} else { // 2 people in chatroom, someone hits End Conversation
+			// TODO: Need to send disconnect to php file
+			$( "#dialog-confirm" ).dialog({
+				resizable: false,
+				height:140,
+				modal: true,
+				buttons: {
+					"Rate and close": function() {
+						// TODO: Add notification of disconnect.
+						var box = this;
+						var rating = $('#survey').serialize();
+						if (rating == '') {
+							alert('Please rate this conversation.');
+							return;
+						} else {
+							var num = rating.substring(7);
+							$.ajax({
+							   type: "POST",
+							   url: "rate.php",
+							   data: {  
+										'chat_filename': file_name,
+										'rating': $.cookie('user_id') + ': ' + num
+									},
+							   success: function(data){	   
+									$(box).dialog('close');
+									window.location = 'index.php';
+							   }
+							});	
+						}
+					}
+				}
+			});
+		}
 	});
 </script>
 
@@ -234,7 +233,8 @@
   function confirmExit()
   {
     if (usersReady) {
-		return "You should at least say goodbye :(";
+		//TODO: Send disconnect data.
+		// return "You should at least say goodbye :(";
 	} else {
 		$.ajax({
 		   type: "POST",
