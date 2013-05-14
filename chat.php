@@ -104,7 +104,8 @@
 	<div id="dialog-confirm">
 		<p>
 			<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-			On a scale from 1-5, how meaningful was this conversation to you? <br><br>
+			<span id="dialog-confirm-message"></span>
+			<br><br>
 			<form id="survey">
 				<input name="rating" type="radio" class="star {split:4}" value="1"/>
 				<input name="rating" type="radio" class="star {split:4}" value="2"/>
@@ -179,7 +180,7 @@
     	});
     </script>
 
-<body onload="setInterval('chat.update()', 1000)">
+<body onload="updateInterval = setInterval('chat.update()', 1000)">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="jquery.cookie.js"></script>
 <script>
@@ -194,7 +195,9 @@
 			});
 		} else { // 2 people in chatroom, someone hits End Conversation
 			// TODO: Need to send disconnect to php file
-			$( "#dialog-confirm" ).dialog({
+			clearInterval(updateInterval);
+			showRatingBox(false);
+			/*$( "#dialog-confirm" ).dialog({
 				resizable: false,
 				height:140,
 				modal: true,
@@ -223,7 +226,7 @@
 						}
 					}
 				}
-			});
+			});*/
 		}
 	});
 </script>
