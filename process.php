@@ -72,18 +72,22 @@
         	 if($state == $count) {
         		 $log['state'] = $state;
         		 $log['text'] = false;
-        		 
+        		 $log['end'] = false;
         	 } else {
-        			 $text= array();
-        			 $log['state'] = $state + count($lines) - $state;
-        			 foreach ($lines as $line_num => $line) {
-        				if($line_num >= $state){
-                         	$text[] =  $line = str_replace("\n", "", $line);
-        				}
-         
-                     }
-        			 $log['text'] = $text; 
-        		 }
+        	 	$log['end'] = false;
+        		$text= array();
+        		$log['state'] = $state + count($lines) - $state;
+        		foreach ($lines as $line_num => $line) {
+					if($line_num >= $state){
+						$text[] =  $line = str_replace("\n", "", $line);
+					}
+					if (preg_match('/END###/', $line)) {
+						$log['end'] = true;
+					}
+	 
+				 }
+				 $log['text'] = $text; 
+			}
         	  
              break;
     	 
