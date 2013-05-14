@@ -200,10 +200,19 @@
 						return;
 					} else {
 						var num = rating.substring(7);
-						alert(num);
 						// TODO: Send to php form to write rating in
-						$(box).dialog('close');
-						window.location = 'index.php';
+						$.ajax({
+						   type: "POST",
+						   url: "rate.php",
+						   data: {  
+									'chat_filename': file_name,
+									'rating': $.cookie('user_id') + ': ' + num
+								},
+						   success: function(data){	   
+								$(box).dialog('close');
+								window.location = 'index.php';
+						   }
+						});
 						
 					}
 					

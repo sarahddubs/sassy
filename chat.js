@@ -62,7 +62,7 @@ function updateChat(){
 						},
 			   dataType: "json",
 			   error: function(data){
-					console.log(data);
+					//console.log(data);
 			   },
 			   success: function(data){
 				   if(data.text){
