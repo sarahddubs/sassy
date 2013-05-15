@@ -114,11 +114,13 @@
 				type: "POST",
 				url: "clearroom.php",
 				success: function(data){
+					$.cookie('current_chatroom', '');
 					window.location = 'index.php';
 				}
 			});
 		} else { // 2 people in chatroom, someone hits End Conversation
 			clearInterval(updateInterval);
+			$.cookie('current_chatroom', '');
 			showRatingBox(false);
 		}
 	});
@@ -126,9 +128,10 @@
 
 <script>
   window.onbeforeunload = confirmExit;
+
   function confirmExit()
   {
-    if (usersReady) {
+	if (usersReady) {
 		$.ajax({
 		   type: "POST",
 		   url: "rate.php",
@@ -137,7 +140,7 @@
 					'rating': $.cookie('user_id') + ':  -1'
 				},
 		   success: function(data){
-		   
+		       $.cookie('current_chatroom', '');
 		   }
 		});	
 	} else {
@@ -145,7 +148,7 @@
 		   type: "POST",
 		   url: "clearroom.php",
 		   success: function(data){	   
-				// here?
+				$.cookie('current_chatroom', '');
 		   }
 		});
 	}

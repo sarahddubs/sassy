@@ -42,10 +42,27 @@
 <script src="jquery.cookie.js"></script>
 
 <script>
-	var userID = "<?php echo uniqid(); ?>";
+	var userID = $.cookie('user_id');
 	
-	$.cookie("user_id", userID);
-
+	if (userID) { // user already has ID
+		var current_chatroom = $.cookie('current_chatroom');
+		if (current_chatroom) {
+			$.ajax({
+				type: "POST",
+				url: "rate.php",
+				data: {  
+					'chat_filename': 'conversations/' + current_chatroom + '.txt',
+					'rating': $.cookie('user_id') + ':  -1'
+				},
+				success: function(data){
+					$.cookie('current_chatroom', '');
+				}
+			});	
+		}
+	} else { // user at site for first time
+		userID = "<?php echo uniqid(); ?>";
+		$.cookie("user_id", userID);
+	}
 	$('.chatroom_room_a').click(function() {
 		// TODO: Some kind of stalling function so that it doesn't send you to a chatroom by yourself.
 		$.ajax({
@@ -62,11 +79,13 @@
 					'chatroom_id': chatroomID
 				    },
 				    success: function(msg){
-					window.location = link;
+						$.cookie('current_chatroom', chatroomID);
+						window.location = link;
 				    }
 				});
 			} else { // chatroom exists already
 				var link = 'chat.php?id=' + room;
+				$.cookie('current_chatroom', chatroomID);
 				window.location = link;
 			}
 		    }
