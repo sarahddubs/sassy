@@ -24,7 +24,7 @@
 		<button class="end-convo" id="end-convo">End Conversation</button>
     
 	</div>
-	 
+	
 	<div id="dialog-confirm">
 		<p>
 			<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
