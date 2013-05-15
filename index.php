@@ -56,8 +56,16 @@
 				},
 				success: function(data){
 					$.cookie('current_chatroom', '');
+					console.log('WROTE TO RATE.PHP');
 				}
 			});	
+			$.ajax({
+				type: "POST",
+				url: "clearroom.php",
+				success: function(data){	   
+					$.cookie('current_chatroom', '');
+				}
+			});
 		}
 	} else { // user at site for first time
 		userID = "<?php echo uniqid(); ?>";
@@ -85,7 +93,7 @@
 				});
 			} else { // chatroom exists already
 				var link = 'chat.php?id=' + room;
-				$.cookie('current_chatroom', chatroomID);
+				$.cookie('current_chatroom', room);
 				window.location = link;
 			}
 		    }
