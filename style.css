@@ -93,6 +93,7 @@ h1, h2, b {
 .ui-dialog-buttonset > button {
 	padding: 6px 7px;
 	top:0px;
+	margin-top:40px;
 }
 
 /* 
@@ -191,6 +192,7 @@ h1, h2, b {
 	background-color: white;
 	margin-top:-40px;
 	border-bottom:none;
+	padding-bottom:20px;
 }
 
 #survey {
@@ -203,6 +205,7 @@ h1, h2, b {
 }
 
 .ui-dialog-buttonpane {
+	padding-top:10px;
 	border-top:none;
 	padding:0px 0px 5px 165px;
 	background-color:white;
