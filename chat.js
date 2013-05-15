@@ -192,5 +192,11 @@ function showRatingBox(partnerDisconnected) {
 			}
 		}
 	});
+	
+	if (partnerDisconnected) {
+		$(".ui-button-text-only").css("margin-top", "70px");
+	}
+
+	
 }
 
