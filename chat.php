@@ -20,8 +20,10 @@
             <p>Your message: </p>
             <textarea id="sendie" maxlength = '100' ></textarea>
         </form>
-		<br><br><br><br><br><br><br>
+		<br><br><br><br><br>
 		<button class="end-convo" id="end-convo">End Conversation</button>
+		
+		<button class="send-button" id="send-button">Send</button>
     
 	</div>
 	
@@ -100,7 +102,27 @@
     				
     			  }
              });
-            
+             
+             
+             $(".send-button").click(function() {
+             	console.log("something");
+             	var text = new Date().getTime() + ' ' + $.cookie('user_id') + ' ' + $("#sendie").val(); // timestamp, usercookie, message
+				var maxLength = $("#sendie").attr("maxlength");  
+				var length = text.length; 
+				 
+				// send 
+				if (length <= maxLength + 1) { 
+				 
+					chat.send(text, name);	
+					$("#sendie").val("");
+					
+				} else {
+				
+					$("#sendie").val(text.substring(0, maxLength));
+					
+				}	
+			 });
+			
     	});
     </script>
 

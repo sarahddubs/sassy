@@ -51,7 +51,7 @@ h1, h2, b {
 */
 
 
-.begin-convo, .end-convo, .ui-dialog-buttonset > button {
+.begin-convo, .end-convo, .ui-dialog-buttonset > button, .send-button {
 	-moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
 	box-shadow:inset 0px 1px 0px 0px #97c4fe;
@@ -73,7 +73,7 @@ h1, h2, b {
 	text-shadow:1px 1px 0px #990000;
 }
 
-.begin-convo:hover, .end-convo:hover, .ui-dialog-buttonset > button {
+.begin-convo:hover, .end-convo:hover, .ui-dialog-buttonset > button:hover, .send-button:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #990000), color-stop(1, #e60000) );
 	background:-moz-linear-gradient( center top, #990000 5%, #e60000 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#990000', endColorstr='#e60000');
@@ -81,7 +81,7 @@ h1, h2, b {
 	cursor: pointer;
 }
 
-.begin-convo:active, .end-convo:active, .ui-dialog-buttonset > button {
+.begin-convo:active, .end-convo:active, .ui-dialog-buttonset > button:active, .send-button:active {
 	position:relative;
 	top:1px;
 }
@@ -94,6 +94,11 @@ h1, h2, b {
 	padding: 6px 7px;
 	top:0px;
 	margin-top:40px;
+}
+
+.send-button {
+	padding: 6px 15px;
+	float:right;
 }
 
 /* 
