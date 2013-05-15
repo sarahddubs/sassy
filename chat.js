@@ -158,12 +158,13 @@ function showRatingBox(partnerDisconnected) {
 		$("#dialog-confirm-message").append(disconnectMsg);
 	}
 	var rateMsg = "On a scale from 1-5, how meaningful was this conversation to you?";
-	$("#dialog-confirm-message").append("<br>");
 	$("#dialog-confirm-message").append(rateMsg);
+	
+	$("#dialog-confirm").css("border-bottom", "none");
 
 	$( "#dialog-confirm" ).dialog({
 		resizable: false,
-		height:140,
+		height:100,
 		modal: true,
 		buttons: {
 			"Rate and close": function() {
