@@ -118,39 +118,8 @@
 				}
 			});
 		} else { // 2 people in chatroom, someone hits End Conversation
-			// TODO: Need to send disconnect to php file
 			clearInterval(updateInterval);
 			showRatingBox(false);
-			/*$( "#dialog-confirm" ).dialog({
-				resizable: false,
-				height:140,
-				modal: true,
-				buttons: {
-					"Rate and close": function() {
-						// TODO: Add notification of disconnect.
-						var box = this;
-						var rating = $('#survey').serialize();
-						if (rating == '') {
-							alert('Please rate this conversation.');
-							return;
-						} else {
-							var num = rating.substring(7);
-							$.ajax({
-							   type: "POST",
-							   url: "rate.php",
-							   data: {  
-										'chat_filename': file_name,
-										'rating': $.cookie('user_id') + ': ' + num
-									},
-							   success: function(data){	   
-									$(box).dialog('close');
-									window.location = 'index.php';
-							   }
-							});	
-						}
-					}
-				}
-			});*/
 		}
 	});
 </script>
