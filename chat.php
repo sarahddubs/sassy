@@ -6,7 +6,6 @@
     
     <title>Campus Convoz</title>
 	<link rel="stylesheet" href="http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.css" type="text/css">
-
 	<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
@@ -21,6 +20,7 @@
             <textarea id="sendie" maxlength = '100' ></textarea>
         </form>
 		<br><br><br><br><br>
+		
 		<button class="end-convo" id="end-convo">End Conversation</button>
 		
 		<button class="send-button" id="send-button">Send</button>
@@ -42,8 +42,13 @@
 		</p>
 	</div>
 	
+	
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" src="chat.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="jquery.cookie.js"></script>
+	<script src="star-rating/jquery.rating.pack.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>	
     <script type="text/javascript">
     
         // ask user for name with popup prompt    
@@ -105,7 +110,6 @@
              
              
              $(".send-button").click(function() {
-             	console.log("something");
              	var text = new Date().getTime() + ' ' + $.cookie('user_id') + ' ' + $("#sendie").val(); // timestamp, usercookie, message
 				var maxLength = $("#sendie").attr("maxlength");  
 				var length = text.length; 
@@ -122,13 +126,13 @@
 					
 				}	
 			 });
+			 
+			 lockChat();
 			
     	});
     </script>
 
 <body onload="updateInterval = setInterval('chat.update()', 1000)">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script src="jquery.cookie.js"></script>
 <script>
 	$('#end-convo').click(function() {
 		if (!usersReady) { // 1 person in chatroom, return to index
@@ -176,8 +180,7 @@
 	}
   }
 </script>
-<script src="star-rating/jquery.rating.pack.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
 </body>
 
 </html>

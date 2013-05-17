@@ -205,7 +205,7 @@ h1, h2, b {
 	left: 100px;
 }
 
-#dialog-confirm, .ui-dialog-buttonpane {
+#dialog-confirm, .ui-dialog-buttonpane, #waiting-box {
 	border:2px solid #990000;
 }
 

@@ -127,6 +127,7 @@ function areUsersReady() {
 			dataType: "json",
 			success: function (data){
 				if (!usersReady && data.ready) {
+					unlockChat();
 					usersReady = true;
 					clearInterval(usersReadyInterval);
 					$('#chat-area').append($("<p>You have been connected!  Say 'hello' to your conversation partner.</p>"));
@@ -198,5 +199,32 @@ function showRatingBox(partnerDisconnected) {
 	}
 
 	
+}
+
+/*
+* Stops the user from typing in the chat box and displays a
+* waiting message.  Call this on initialization. 
+* To stop this, call unlockChat().
+*/
+function lockChat() {
+	// Initialization - don't allow for user to type messages
+	$("#sendie").prop('disabled', true);
+	
+	// Display waiting message
+	$("#chat-area").css("background-color", "#efefef");
+	$("#chat-area").html("Please wait while we connect you with a partner...");
+}
+
+/*
+* Allow the user to type in the chat box and clears the waiting 
+* message.  Call this when the second user has entered the room.
+*/
+function unlockChat() {
+	// Initialization - don't allow for user to type messages
+	$("#sendie").prop('disabled', false);
+	
+	// Display waiting message
+	$("#chat-area").css("background-color", "white");
+	$("#chat-area").html("");
 }
 
