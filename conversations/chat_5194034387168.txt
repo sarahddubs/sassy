@@ -1,0 +1,28 @@
+USER#1:5194034387123 USER#2:51940345cd7ec
+1368654677677 5194034387123 hi 
+1368654678792 51940345cd7ec hello 
+1368654684685 5194034387123 how are you doing 
+1368654694061 51940345cd7ec i am user testing this web site 
+1368654696063 51940345cd7ec what are you doing? 
+1368654697566 5194034387123 ditto 
+1368654714591 5194034387123 So what\'s your impression so far 
+1368654724696 51940345cd7ec im trying to figure out who you are 
+1368654730275 51940345cd7ec i think we\'re in the same room 
+1368654733248 5194034387123 Good luck 
+1368654741753 5194034387123 i like to remain anonymous 
+1368654749006 51940345cd7ec lol 
+1368654758882 51940345cd7ec I think this website is cool. 
+1368654763130 5194034387123 me too. 
+1368654773773 51940345cd7ec I assume they\'re going to add credential verification later. 
+1368654779907 51940345cd7ec So only people from a certain school can log-in or something. 
+1368654790835 5194034387123 yeah that would make sense. otherwise this could get sketchy quickly 
+1368654795868 5194034387123 as with everything on the web 
+1368654812923 51940345cd7ec Yup...feels sketchy anyway 
+1368654820901 5194034387123 yeah it does haha 
+1368654833345 51940345cd7ec ok, i think im done 
+1368654835118 5194034387123 If they added webcam this would get sooo out of hand 
+1368654836749 51940345cd7ec thanks for talking! 
+1368654838478 5194034387123 haha ok 
+ END###:5194034387123: 3
+ END###:51940345cd7ec: 3
+ END###:51940345cd7ec:  -1

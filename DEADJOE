@@ -1,0 +1,57 @@
+
+*** These modified files were found in JOE when it aborted on Wed May 15 00:34:22 2013
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+.git/COMMIT_EDITMSG
+
+*** File '.git/COMMIT_EDITMSG'
+Merge branch 'master' of https://github.com/sarahddubs/sassy
+
+Conflicts:
+	conversations/chat_519332490effd.txt
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 2 and 1 different commit each, respectively.
+#
+# Changes to be committed:
+#
+#	modified:   ../chat.js
+#	deleted:    chat_519332490effd.txt
+#	modified:   chat_519332a22f413.txt
+#	new file:   chat_5193360f5bb55.txt
+#	new file:   chat_519336d7d26ae.txt
+#	new file:   chat_519336ee1f49e.txt
+#	new file:   chat_51933740e5c63.txt
+#	new file:   chat_5193375c7de6a.txt
+#	new file:   chat_5193378070c79.txt
+#	new file:   chat_519337d9b25d1.txt
+#	new file:   chat_5193384121d57.txt
+#	new file:   chat_5193387af018c.txt
+#	new file:   chat_519338a379510.txt
+#	new file:   chat_519338ee77848.txt
+#	new file:   chat_5193392abce67.txt
+#	modified:   ../style.css
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	../.htaccess
+#	../getroom.php~
+#	../index.php~
+#	../writeroom.php~
+
+*** These modified files were found in JOE when it aborted on Wed May 15 00:34:50 2013
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+.git/COMMIT_EDITMSG
