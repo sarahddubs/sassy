@@ -212,7 +212,7 @@ function lockChat() {
 	
 	// Display waiting message
 	$("#chat-area").css("background-color", "#efefef");
-	var waitMsg = "<div id='wait-msg'>Please wait while we connect you with a partner</div>";
+	var waitMsg = "<div id='wait-msg'>Please wait while we connect you with a partner :)</div>";
 	waitMsg +=	"<div id='ballsWaveG'>"
 	waitMsg +=		"<div id='ballsWaveG_1' class='ballsWaveG'></div>";
 	waitMsg +=		"<div id='ballsWaveG_2' class='ballsWaveG'></div>";
