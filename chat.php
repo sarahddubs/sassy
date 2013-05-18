@@ -146,40 +146,54 @@
 				}
 			});
 		} else { // 2 people in chatroom, someone hits End Conversation
-			clearInterval(updateInterval);
-			$.cookie('current_chatroom', '');
-			showRatingBox(false);
-		}
+			if (confirm("Are you sure you wish to end this conversation? There's no going back if you do.")){
+				clearInterval(updateInterval);
+				$.cookie('current_chatroom', '');
+				$.ajax({
+				   type: "POST",
+				   url: "rate.php",
+				   data: {  
+							'chat_filename': file_name,
+							'rating': $.cookie('user_id') + ':  -1'
+						},
+				   success: function(data){
+				   }
+				});	
+				showRatingBox(false);
+			}
+		} 
 	});
 </script>
 
 <script>
+	
   window.onbeforeunload = confirmExit;
-
   function confirmExit()
   {
-	if (usersReady) {
-		$.ajax({
-		   type: "POST",
-		   url: "rate.php",
-		   data: {  
-					'chat_filename': file_name,
-					'rating': $.cookie('user_id') + ':  -1'
-				},
-		   success: function(data){
-		       $.cookie('current_chatroom', '');
-		   }
-		});	
-	} else {
-		$.ajax({
-		   type: "POST",
-		   url: "clearroom.php",
-		   success: function(data){	   
-				$.cookie('current_chatroom', '');
-		   }
-		});
+		if (usersReady) {
+			$.ajax({
+			   type: "POST",
+			   url: "rate.php",
+			   data: {  
+						'chat_filename': file_name,
+						'rating': $.cookie('user_id') + ':  -1'
+					},
+			   success: function(data){
+				   $.cookie('current_chatroom', '');
+			   }
+			});	
+		} else {
+			$.ajax({
+			   type: "POST",
+			   url: "clearroom.php",
+			   success: function(data){	   
+					$.cookie('current_chatroom', '');
+			   }
+			});
+		}
 	}
-  }
+  
+  
 </script>
 
 </body>
