@@ -7,6 +7,7 @@
     <title>Campus Convoz</title>
 	<link rel="stylesheet" href="http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.css" type="text/css">
 	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="loader.css" type="text/css" />
 </head>
 <body>
 	<div id="page-wrap">
