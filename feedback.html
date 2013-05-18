@@ -1,0 +1,42 @@
+<html>
+	<head>
+			<link rel="stylesheet" href="style.css" type="text/css" />	
+			<TITLE>Send Campus Convoz an email!</TITLE>
+			<style>
+				#about {
+					width: 500px;
+					margin: auto;
+					margin-top: 130px;
+				}
+				  input[type=text], textarea{
+                    width: 500px;
+					margin-bottom: 5px;
+					height: 30px;
+                }
+				textarea {
+					height: 100px;
+				}
+				input[type=submit] {
+					padding: 5px;
+					text-align: right;
+				}
+			</style>
+	</head>
+	
+	<body>
+	
+	<div id="about">
+		<h1>Feedback? Questions? Concerns? Bugs?</h1>
+		<br>
+		 Send us an e-mail using this nifty form!<br><br>
+		  <form method="post" action="send_form_email.php">
+				<input type="text" name="first_name" placeholder="Name" /><br>
+				<input type="text" name="email" placeholder="Email"/><br>
+				<textarea name="comments" placeholder="Send us some lovin"></textarea><br>
+				<input type="submit" value="Send" class="send-button"/>
+	    	</form>
+	</div>
+	<br><br><br>
+			<center><a href="index.php">Back to homepage</a></center>
+	</body>
+</html>

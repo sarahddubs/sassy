@@ -27,6 +27,8 @@
 						<a class='bottom_a' href='about.html'>About Us </a>
 						<b>|</b> 
 						<a class='bottom_a' href='privacypolicy.html'>Privacy Policy</a>
+						<b>|</b>
+						<a class="bottom_a" href="feedback.html">Feedback</a>
 					</p>
 				</div>
 			</td>

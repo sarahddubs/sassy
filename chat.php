@@ -149,16 +149,6 @@
 			if (confirm("Are you sure you wish to end this conversation? There's no going back if you do.")){
 				clearInterval(updateInterval);
 				$.cookie('current_chatroom', '');
-				$.ajax({
-				   type: "POST",
-				   url: "rate.php",
-				   data: {  
-							'chat_filename': file_name,
-							'rating': $.cookie('user_id') + ':  -1'
-						},
-				   success: function(data){
-				   }
-				});	
 				showRatingBox(false);
 			}
 		} 
