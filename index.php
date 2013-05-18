@@ -24,9 +24,9 @@
 				</div>
 				<div id='bottom_section'>
 					<p>
-						<a class='bottom_a' href='#'>About Us </a>
+						<a class='bottom_a' href='about.html'>About Us </a>
 						<b>|</b> 
-						<a class='bottom_a' href='#'>Privacy Policy</a>
+						<a class='bottom_a' href='privacypolicy.html'>Privacy Policy</a>
 					</p>
 				</div>
 			</td>
