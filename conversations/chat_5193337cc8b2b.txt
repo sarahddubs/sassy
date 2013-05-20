@@ -1,6 +1,0 @@
-USER#1:51932fcaddad1 USER#2:5193335edbaf8
-1368601481826 5193335edbaf8 hie? 
-1368601484706 51932fcaddad1 hello 
-1368601487953 5193335edbaf8 maybe you need to clear the conversation files 
-1368601492561 51932fcaddad1 there was probably a leftover chat from the room 
- END###:51932fcaddad1: 5

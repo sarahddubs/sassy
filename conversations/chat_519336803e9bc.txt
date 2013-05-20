@@ -1,8 +1,0 @@
-USER#1:519336606574c USER#2:51932fcaddad1
-1368602250760 51932fcaddad1 wut 
-1368602252076 519336606574c let\'s introduce a third user? 
-1368602254476 519336606574c like a third computer? 
-1368602261798 51932fcaddad1 yeah we should 
-1368602260132 519336606574c see how that interacts 
-1368602263028 519336606574c or 2 convos in parallel 
- END###:51932fcaddad1: 4
