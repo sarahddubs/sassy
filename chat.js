@@ -81,6 +81,7 @@ function updateChat(){
 								if ($.cookie('user_id') == sent_by) person = 'You';
 								else person = 'Stranger';
 								$('#chat-area').append($("<p><span>" + person + '</span>' + message +"</p>")); // TEXT OF USER
+								$('title').html(message);
 							}
 							document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;			
 						}
