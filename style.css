@@ -216,6 +216,10 @@ h1, h2, b {
 	background-color:white;
 }
 
+#chat-area p {
+	line-height:135%;
+}
+
 
 /* 
 
