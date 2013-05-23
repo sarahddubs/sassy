@@ -12,3 +12,6 @@ USER#1:519da08d9cb36 USER#2:519da0b4d7852
 1369286505048 519da0b4d7852 how do u know? 
 1369286508720 519da08d9cb36 cuz i\'m scott too! 
 1369286511279 519da0b4d7852 lolol meta 
+ END###:519da0b4d7852: 2
+ END###:519da08d9cb36: 1
+ END###:519da08d9cb36:  -1

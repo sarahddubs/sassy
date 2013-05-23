@@ -47,6 +47,14 @@ function getStateOfChat(){
 	}	 
 }
 
+// Replace the following special chars: ' " \
+function escapeSpecialChars(message) {
+	message = message.replace(/\\'/g, "'");
+	message = message.toString().replace(/\\&quot;/g, '"');
+	message = message.replace(/\\\\/g, '\\');
+	return message
+}
+
 //Updates the chat
 function updateChat(){
 	 if(!instanse){
@@ -76,7 +84,7 @@ function updateChat(){
 								var timestamp = data.text[i].substring(0, first_space);
 								var sent_by = data.text[i].substring(first_space + 1 , second_space);
 								var message = data.text[i].substring(second_space + 1);
-								message = message.replace(/\\'/g, "a");
+								message = escapeSpecialChars(message);
 								var person = '';
 								if ($.cookie('user_id') == sent_by) person = 'You';
 								else person = 'Stranger';
