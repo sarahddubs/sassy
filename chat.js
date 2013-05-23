@@ -81,10 +81,10 @@ function updateChat(){
 								if ($.cookie('user_id') == sent_by) person = 'You';
 								else person = 'Stranger';
 								$('#chat-area').append($("<p><span>" + person + '</span>' + message +"</p>")); // TEXT OF USER
-							}			
+							}
+							document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;			
 						}
 				   }
-				   document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;
 				   instanse = false;
 				   state = data.state;
 			   },
