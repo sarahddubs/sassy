@@ -19,7 +19,7 @@
         
         <form id="send-message-area">
             <p>Your message: </p>
-            <textarea id="sendie" maxlength = '100' ></textarea>
+            <textarea id="sendie" maxlength = '500' ></textarea>
         </form>
 		<br><br><br><br><br>
 		

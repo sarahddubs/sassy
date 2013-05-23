@@ -76,7 +76,7 @@ function updateChat(){
 								var timestamp = data.text[i].substring(0, first_space);
 								var sent_by = data.text[i].substring(first_space + 1 , second_space);
 								var message = data.text[i].substring(second_space + 1);
-								message = message.replace(/\\'/g, "'");
+								message = message.replace(/\\'/g, "a");
 								var person = '';
 								if ($.cookie('user_id') == sent_by) person = 'You';
 								else person = 'Stranger';
