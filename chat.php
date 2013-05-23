@@ -134,7 +134,7 @@
     	});
     </script>
 
-<body onload="updateInterval = setInterval('chat.update()', 1000)">
+<body onload="updateInterval = setInterval('chat.update()', 200)">
 <script>
 	$('#end-convo').click(function() {
 		if (!usersReady) { // 1 person in chatroom, return to index

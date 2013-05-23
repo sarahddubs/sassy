@@ -12,7 +12,7 @@
 					<h1>Campus Convoz</h1>
 					<p id='campusconvos_p'>
 						Need someone to talk to?  We can help.
-						Campus Convos is here to connect you to someone
+						Campus Convoz is here to connect you to someone
 						on your campus so you can have a meaningful 
 						conversation with someone without revealing your
 						identity.
